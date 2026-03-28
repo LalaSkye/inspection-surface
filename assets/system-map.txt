@@ -1,0 +1,21 @@
+SYSTEM MAP — LalaSkye Control Systems
+
+input (request + decision record)
+  │
+  ▼
+commit gate
+  │
+  ├── CHECK 1:  record exists?          → NO  → BLOCKED
+  ├── CHECK 2:  verdict == ALLOW?       → NO  → BLOCKED
+  ├── CHECK 3:  signature valid?        → NO  → BLOCKED
+  ├── CHECK 4:  not expired?            → NO  → BLOCKED
+  ├── CHECK 5:  nonce unused?           → NO  → BLOCKED
+  ├── CHECK 6:  action matches?         → NO  → BLOCKED
+  ├── CHECK 7:  object matches?         → NO  → BLOCKED
+  ├── CHECK 8:  environment matches?    → NO  → BLOCKED
+  ├── CHECK 9:  policy version valid?   → NO  → BLOCKED
+  ├── CHECK 10: action is governed?     → NO  → BLOCKED
+  │
+  ▼
+ALL PASS → consume nonce → apply mutation → log (ALLOWED)
+ANY FAIL → no mutation → log (BLOCKED + reason)
