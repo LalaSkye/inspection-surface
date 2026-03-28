@@ -1,5 +1,10 @@
 # System Map
 
+## Execution boundary
+
+All state mutations pass through `commit_gate.py`.
+No direct mutation path exists.
+
 ## Core flow
 
 ```

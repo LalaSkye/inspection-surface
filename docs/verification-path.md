@@ -1,6 +1,6 @@
 # Verification Path
 
-How to verify this work independently.
+If any governed action can execute without a valid decision record, the invariant is violated.
 
 ## Step 1: Run the proof
 

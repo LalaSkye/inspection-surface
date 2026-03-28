@@ -13,7 +13,7 @@ Each repository implements one control primitive or proof. No repository depends
 
 ### start-here
 - **URL:** github.com/LalaSkye/start-here
-- **What:** Canonical governance demo. 8-stage evaluator pipeline. 10 bulkhead invariants.
+- **What:** Governance demo. 8-stage evaluator pipeline. 10 bulkhead invariants.
 - **Tests:** 134
 - **Run:** `python run_demo.py`
 
@@ -31,7 +31,7 @@ Each repository implements one control primitive or proof. No repository depends
 
 ### admissible-transition-lab
 - **URL:** github.com/LalaSkye/admissible-transition-lab
-- **What:** Formal transition system. Admissibility enforced at execution boundary.
+- **What:** Transition system. Admissibility enforced at execution boundary.
 - **Created:** 2026-03-17
 
 ### interpretation-boundary-lab
@@ -48,7 +48,7 @@ Each repository implements one control primitive or proof. No repository depends
 
 ### constraint-workshop
 - **URL:** github.com/LalaSkye/constraint-workshop
-- **What:** Small, deterministic control primitives. Formal specs (ADMISSIBILITY_ALGEBRA_v1, CANONICAL_PACKET_NORMAL_FORM_v1, PROOF_CARRYING_PACKET_SPEC_v1, GOLDEN_CONFORMANCE_CORPUS_v1).
+- **What:** Deterministic control primitives. Specs: ADMISSIBILITY_ALGEBRA_v1, CANONICAL_PACKET_NORMAL_FORM_v1, PROOF_CARRYING_PACKET_SPEC_v1, GOLDEN_CONFORMANCE_CORPUS_v1.
 - **Created:** 2026-02-16
 
 ### stop-machine
@@ -78,9 +78,9 @@ Each repository implements one control primitive or proof. No repository depends
 - **What:** LLM stability and drift measurement. Deterministic scoring. Hash-chained evidence.
 - **Created:** 2026-02-20
 
-## Public surface
+## Verification surface
 
 ### trilogyos-surface
 - **URL:** github.com/LalaSkye/trilogyos-surface
-- **What:** Public verification surface for TrilogyOS. Explains behaviour. Does not enable replication.
+- **What:** Verification surface for TrilogyOS. Explains behaviour. Does not enable replication.
 - **Created:** 2026-03-24

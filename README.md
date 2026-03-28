@@ -1,19 +1,9 @@
 # Inspection Surface
 
-A public index for deterministic control systems and runtime proof repositories.
-
 **Invariant:**
 No valid decision record -> no state mutation.
 
-This repository exists to make inspection easy.
-
-It links to:
-- the minimal runtime proof
-- the supporting repositories
-- the provenance statement
-- the verification path
-
-No external context is required.
+This repository indexes executable control systems and verification paths.
 
 ## Start here
 
@@ -121,6 +111,10 @@ This project uses mechanical terms only.
 
 Full terminology: [docs/terminology.md](docs/terminology.md)
 
+## Invariant
+
+See [docs/invariant.md](docs/invariant.md).
+
 ## Provenance
 
 All repositories are independently authored by Ricky Dean Jones / Os-Trilogy LMT.
@@ -135,4 +129,4 @@ MIT — see [LICENSE](LICENSE).
 
 ---
 
-This repository demonstrates deterministic control using standard engineering techniques. No proprietary frameworks or external implementations are used.
+All behaviour is defined by code and tests. No additional interpretation is required.

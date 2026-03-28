@@ -47,6 +47,6 @@ This project uses mechanical terms. Each term maps to code.
 | Nonce consumption | Decision is single-use. Consumed before mutation. |
 | Append-only audit | Every attempt recorded. ALLOWED and BLOCKED. |
 
-## What these terms are not
+## Rule
 
-These are standard engineering terms for input validation, state transition control, and audit logging. They do not reference or derive from any external framework or product.
+If a term cannot be mapped to a check, condition, or failure code, do not use it.
