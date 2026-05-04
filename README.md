@@ -1,23 +1,29 @@
 # Inspection Surface
 
 **Invariant:**
-No valid decision record -> no state mutation.
+No valid decision record -> no state mutation on the demonstrated path.
 
 This repository indexes executable control systems and verification paths.
 
 ## What this does not prove
 
-This repository does not prove adoption, certification, standardisation, or production readiness.
+This repository does not prove adoption, certification, standardisation, production readiness, or path-universal deployment coverage.
 
-It demonstrates a bounded execution-control surface that can be run, inspected, and tested.
+It demonstrates bounded execution-control surfaces that can be run, inspected, and tested at their stated scope.
 
 ## Start here
 
 If you only open one repository, open:
 
+**[commit-gate-core](https://github.com/LalaSkye/commit-gate-core)**
+
+A path-local execution-boundary primitive showing that a state mutation cannot proceed without a valid DecisionRecord on the demonstrated path.
+
+Then inspect:
+
 **[runtime-commit-gate-demo](https://github.com/LalaSkye/runtime-commit-gate-demo)**
 
-A minimal execution boundary showing that state does not change without a valid decision record.
+A runtime demo showing a decision-record controlled mutation path with an adversarial test battery.
 
 Verify locally:
 
@@ -29,7 +35,7 @@ python demo/run_demo.py
 python -m pytest tests/ -v
 ```
 
-Expected: 5-step proof sequence. 13 passing tests. 1 allowed, 4 blocked.
+Expected: decision-record controlled proof sequence with the current test battery. Check the runtime repo README for the latest test count.
 
 ## Repository index
 
@@ -37,7 +43,8 @@ Each repository implements one control primitive or proof.
 
 | Repository | What it does | Tests |
 |---|---|---|
-| [runtime-commit-gate-demo](https://github.com/LalaSkye/runtime-commit-gate-demo) | Execution boundary. Decision record required for mutation. | 13 |
+| [commit-gate-core](https://github.com/LalaSkye/commit-gate-core) | Path-local commit gate primitive. DecisionRecord required for mutation on the demonstrated path. Known hardening gaps tracked as issues. | yes |
+| [runtime-commit-gate-demo](https://github.com/LalaSkye/runtime-commit-gate-demo) | Execution boundary. Decision record required for mutation on a demo path. | 42+ |
 | [start-here](https://github.com/LalaSkye/start-here) | Canonical governance demo. 8-stage evaluator pipeline. | 134 |
 | [execution-boundary-lab](https://github.com/LalaSkye/execution-boundary-lab) | Gate interface. 6 contamination cases. Adversarial suite. | yes |
 | [constraint-workshop](https://github.com/LalaSkye/constraint-workshop) | Deterministic control primitives. Formal specs. | yes |
@@ -46,7 +53,7 @@ Each repository implements one control primitive or proof.
 | [execution-gate-litmus](https://github.com/LalaSkye/execution-gate-litmus) | Tests whether governance actually exists. | yes |
 | [invariant-lock](https://github.com/LalaSkye/invariant-lock) | Refuses execution unless version increments. | yes |
 | [deterministic-lexicon](https://github.com/LalaSkye/deterministic-lexicon) | Fixed-term vocabulary. No inference. | yes |
-| [policy-lint](https://github.com/LalaSkye/policy-lint) | Governance statement linter. 0-1 scoring. | yes |
+| [policy-lint](https://github.com/LalaSkye/policy-lint) | Governance statement linter. 0-1 scoring. | 42 |
 | [csgr-lab](https://github.com/LalaSkye/csgr-lab) | LLM stability and drift measurement. Hash-chained evidence. | yes |
 | [interpretation-boundary-lab](https://github.com/LalaSkye/interpretation-boundary-lab) | Pre-verdict admissibility layer. | yes |
 | [dual-boundary-admissibility-lab](https://github.com/LalaSkye/dual-boundary-admissibility-lab) | Admissibility rotation corridor. | yes |
@@ -64,7 +71,7 @@ Full descriptions: [docs/repo-index.md](docs/repo-index.md)
                              │
                     ┌────────▼────────┐
                     │   commit gate    │
-                    │  (10 checks)     │
+                    │  (checks)        │
                     │  fail-closed     │
                     └────────┬────────┘
                              │
@@ -135,4 +142,4 @@ MIT — see [LICENSE](LICENSE).
 
 ---
 
-All behaviour is defined by code and tests. No additional interpretation is required.
+All behaviour is defined by code and tests at each repository's stated scope. No additional interpretation is required.
