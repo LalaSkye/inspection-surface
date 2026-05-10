@@ -5,6 +5,8 @@ No valid decision record -> no state mutation on the demonstrated path.
 
 This repository indexes executable control systems and verification paths.
 
+> These repositories demonstrate narrow, path-local proof surfaces only. No claim of path-universal governance or production readiness is made.
+
 ## What this does not prove
 
 This repository does not prove adoption, certification, standardisation, production readiness, or path-universal deployment coverage.
