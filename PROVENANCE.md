@@ -1,6 +1,7 @@
 # Provenance & Independent Design Statement
 
-Author: Ricky Dean Jones / Os-Trilogy LMT
+**Author:** Ricky Dean Jones / AlvianTech  
+**Research Surface Map:** [lalaSkye.github.io/inspection-surface](https://lalaskye.github.io/inspection-surface/)
 
 ## Statement
 
@@ -35,24 +36,10 @@ No external proprietary materials, codebases, or confidential specifications wer
 | 2026-03-24 | trilogyos-surface | Public verification surface |
 | 2026-03-25 | start-here | Canonical governance demo |
 | 2026-03-28 | runtime-commit-gate-demo | Commit gate + 5-step proof |
+| 2026-05-18 | interrupt-ledger | Receipt schema, replay, stop evidence |
 
 All dates are GitHub-recorded creation timestamps. Immutable. Independently verifiable.
 
-## Non-claims
+## Attribution
 
-This project does not claim ownership of general concepts such as pre-execution validation, authorization checks, or standard security patterns.
-
-## Evidence of independence
-
-- Public git history with timestamps across 14 repositories
-- Distinct terminology and implementation structure
-- No shared code or licensed material from any third party
-- Conformance tests that prove behaviour mechanically
-
-## Contact
-
-For questions regarding authorship or licensing, contact via repository issues.
-
-## Licence
-
-MIT (see LICENSE).
+If you use, adapt, or reference this work, please retain attribution to Ricky Dean Jones and link to the original repository or Research Surface Map.
