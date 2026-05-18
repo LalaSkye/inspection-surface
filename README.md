@@ -1,6 +1,6 @@
-# Inspection Surface
+# Research Surface Map — Ricky Jones / AlvianTech
 
-**Research Surface Map (live):** [lalaSkye.github.io/inspection-surface](https://lalaskye.github.io/inspection-surface/)
+**Canonical entry point (live):** [lalaskye.github.io/inspection-surface](https://lalaskye.github.io/inspection-surface/)
 
 Full crawlable index of repos, papers, terminology, provenance, and inspection levels.
 
@@ -8,7 +8,7 @@ Full crawlable index of repos, papers, terminology, provenance, and inspection l
 
 ## Public disclosure boundary
 
-This repository is a public inspection surface, not full architecture disclosure.
+This repository hosts the Research Surface Map. It is a public inspection surface, not full architecture disclosure.
 
 It shows bounded public inspection routes and claim limits. It must not be read as a system map, orchestration model, or protected architecture disclosure.
 
@@ -33,15 +33,13 @@ claim → evidence object → inspection path → claim limit
 
 Each public proof surface should be read only at its stated scope.
 
-## Entry points
+## Key repos
 
-**New to this work:** Start at [start-here](https://github.com/LalaSkye/start-here)
+**New to this work:** [start-here](https://github.com/LalaSkye/start-here)
 
 **Core execution-boundary proof:** [commit-gate-core](https://github.com/LalaSkye/commit-gate-core)
 
 **Receipt and interrupt evidence:** [interrupt-ledger](https://github.com/LalaSkye/interrupt-ledger)
-
-**Full Research Surface Map:** [lalaSkye.github.io/inspection-surface](https://lalaskye.github.io/inspection-surface/)
 
 ## Provenance
 
