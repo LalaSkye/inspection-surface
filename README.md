@@ -1,44 +1,47 @@
 # Inspection Surface
 
+**Research Surface Map (live):** [lalaSkye.github.io/inspection-surface](https://lalaskye.github.io/inspection-surface/)
+
+Full crawlable index of repos, papers, terminology, provenance, and inspection levels.
+
+---
+
 ## Public disclosure boundary
 
 This repository is a public inspection surface, not full architecture disclosure.
 
 It shows bounded public inspection routes and claim limits. It must not be read as a system map, orchestration model, or protected architecture disclosure.
 
-See [`PUBLIC_DISCLOSURE_BOUNDARY.md`](PUBLIC_DISCLOSURE_BOUNDARY.md).
+See [`NON-CLAIMS.md`](NON-CLAIMS.md) and [`PUBLIC_DISCLOSURE_BOUNDARY.md`](PUBLIC_DISCLOSURE_BOUNDARY.md).
 
 ## What this repo is
 
-A reduced public entry point for bounded proof surfaces.
+The canonical index for execution-boundary AI governance research by Ricky Dean Jones / AlvianTech.
 
-Its purpose is to help a reader understand how to inspect a local claim without inferring the wider system design.
-
-## What this does not prove
-
-This repository does not prove adoption, certification, standardisation, production readiness, path-universal governance, tamper-proofing, or non-bypassability.
-
-It does not disclose the wider architecture.
+It provides:
+- repo index with inspection levels
+- system map
+- terminology
+- provenance and creation timeline
+- verification paths
 
 ## Public inspection standard
 
 ```text
-claim -> evidence object -> inspection path -> claim limit
+claim → evidence object → inspection path → claim limit
 ```
 
 Each public proof surface should be read only at its stated scope.
 
-## Minimal inspection route
+## Entry points
 
-Start with the current public entry surface:
+**New to this work:** Start at [start-here](https://github.com/LalaSkye/start-here)
 
-https://github.com/LalaSkye/start-here
+**Core execution-boundary proof:** [commit-gate-core](https://github.com/LalaSkye/commit-gate-core)
 
-Then inspect each linked proof object only by its own README and stated claim boundary.
+**Receipt and interrupt evidence:** [interrupt-ledger](https://github.com/LalaSkye/interrupt-ledger)
 
-## Boundary rule
-
-Do not infer sequencing, orchestration, runtime substrate, deployment model, or protected system composition from this repository.
+**Full Research Surface Map:** [lalaSkye.github.io/inspection-surface](https://lalaskye.github.io/inspection-surface/)
 
 ## Provenance
 
@@ -46,6 +49,8 @@ All public artefacts are independently authored by Ricky Dean Jones / AlvianTech
 
 No external proprietary materials, codebases, or confidential specifications are claimed as sources.
 
+Timestamps are GitHub-recorded and independently verifiable.
+
 ## Licence
 
-MIT — see [LICENSE](LICENSE).
+See individual repository licences. All architecture, methods, and system designs are the original work of Ricky Dean Jones unless otherwise stated.
