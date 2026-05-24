@@ -1,0 +1,60 @@
+# Source of truth for the inspection surface.
+# Editing this file regenerates index.json and the README index table
+# via .github/workflows/index.yml.
+#
+# Rules:
+#   - One row per public proof artefact.
+#   - bounded_claim: one sentence, scope-qualified.
+#   - test_command: a single command that runs from a clean checkout.
+#   - release_tag: the tag this row attests to.
+#   - receipt_shape: path to the canonical receipt document or directory.
+#
+# This file is governed by the release-discipline header in CHANGELOG.md.
+
+version: 1
+repos:
+  - name: start-here
+    bounded_claim: >
+      Within the scope of this artefact at the named release tag, provides
+      a single runnable entry point that exercises the minimal
+      admissibility-before-effect demonstration.
+    proof_path: src/
+    test_command: "python run_demo.py"
+    release_tag: v0.1.0
+    receipt_shape: RECEIPT.md
+
+  - name: commit-gate-core
+    bounded_claim: >
+      Within the scope of this artefact at the named release tag, refuses
+      state mutation in the absence of a valid DecisionRecord.
+    proof_path: src/commit_gate_core/
+    test_command: "pytest -q"
+    release_tag: v0.1.0
+    receipt_shape: RECEIPT.md
+
+  - name: receipt-chain-core
+    bounded_claim: >
+      Within the scope of this artefact at the named release tag, treats
+      prior decision receipts as inputs to the next admissibility decision.
+    proof_path: src/receipt_chain_core/
+    test_command: "pytest -q"
+    release_tag: v0.1.0
+    receipt_shape: docs/
+
+  - name: refusal-receipt-chain
+    bounded_claim: >
+      Within the scope of this artefact at the named release tag, emits a
+      refusal receipt at the point admissibility fails.
+    proof_path: ./
+    test_command: "python chain_verify.py"
+    release_tag: v0.1.0
+    receipt_shape: sample_deny_receipt.json
+
+  - name: fail-closed-ai
+    bounded_claim: >
+      Within the scope of this artefact at the named release tag, produces
+      no downstream effect in the absence of a valid admissibility decision.
+    proof_path: consequence-control-stack/
+    test_command: "pytest -q"
+    release_tag: v0.1.0
+    receipt_shape: RECEIPT.md
