@@ -1,5 +1,22 @@
 # Research Surface Map — Ricky Jones / AlvianTech
 
+## Evidence boundary
+
+A claim may not travel farther than the artefact that proves it.
+
+A public artefact does not need to reveal the system. It needs to prove
+one bounded behaviour:
+
+- what was admitted,
+- what was refused,
+- what receipt was produced,
+- and what replay shows the boundary held.
+
+The claim stops where the artefact stops.
+
+Per-repo boundaries are defined by each repo's `CLAIM_BOUNDARY.md`,
+`NON-CLAIMS.md`, `PUBLIC_DISCLOSURE_BOUNDARY.md`, and `RECEIPT.md`.
+
 **Canonical entry point (live):** [lalaskye.github.io/inspection-surface](https://lalaskye.github.io/inspection-surface/)
 
 Full crawlable index of repos, papers, terminology, provenance, and inspection levels.
@@ -32,6 +49,13 @@ claim → evidence object → inspection path → claim limit
 ```
 
 Each public proof surface should be read only at its stated scope.
+
+## Inspection surface index
+
+<!-- INDEX:START -->
+<!-- INDEX:END -->
+
+_Edit `surface.yaml` and push; `.github/workflows/index.yml` regenerates the table above._
 
 ## Key repos
 
