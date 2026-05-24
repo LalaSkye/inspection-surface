@@ -5,9 +5,10 @@
 # Rules:
 #   - One row per public proof artefact.
 #   - bounded_claim: one sentence, scope-qualified.
-#   - test_command: a single command that runs from a clean checkout.
+#   - test_command: a single command that runs from a clean checkout
+#     at the proof_path.
 #   - release_tag: the tag this row attests to.
-#   - receipt_shape: path to the canonical receipt document or directory.
+#   - receipt_shape: path to the canonical receipt document for this tag.
 #
 # This file is governed by the release-discipline header in CHANGELOG.md.
 
@@ -39,7 +40,7 @@ repos:
     proof_path: src/receipt_chain_core/
     test_command: "pytest -q"
     release_tag: v0.1.0
-    receipt_shape: docs/
+    receipt_shape: docs/PROOF_PACK_v0.1.md
 
   - name: refusal-receipt-chain
     bounded_claim: >
@@ -47,14 +48,14 @@ repos:
       refusal receipt at the point admissibility fails.
     proof_path: ./
     test_command: "python chain_verify.py"
-    release_tag: v0.1.0
+    release_tag: v0.1.1-docs
     receipt_shape: sample_deny_receipt.json
 
   - name: fail-closed-ai
     bounded_claim: >
       Within the scope of this artefact at the named release tag, produces
       no downstream effect in the absence of a valid admissibility decision.
-    proof_path: consequence-control-stack/
-    test_command: "pytest -q"
+    proof_path: docs/neo-guard/neo_guard/
+    test_command: "cd docs/neo-guard && pytest -q"
     release_tag: v0.1.0
-    receipt_shape: RECEIPT.md
+    receipt_shape: docs/neo-guard/CHAIN_RECEIPT_v0.1.md
