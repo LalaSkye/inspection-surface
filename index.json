@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-05-24T01:43:27+00:00",
+  "owner": "LalaSkye",
+  "rows": [
+    {
+      "repo": "start-here",
+      "url": "https://github.com/LalaSkye/start-here",
+      "bounded_claim": "Within the scope of this artefact at the named release tag, provides a single runnable entry point that exercises the minimal admissibility-before-effect demonstration.",
+      "proof_path": "src/",
+      "test_command": "python run_demo.py",
+      "release_tag": "v0.1.0",
+      "receipt_shape": "RECEIPT.md"
+    },
+    {
+      "repo": "commit-gate-core",
+      "url": "https://github.com/LalaSkye/commit-gate-core",
+      "bounded_claim": "Within the scope of this artefact at the named release tag, refuses state mutation in the absence of a valid DecisionRecord.",
+      "proof_path": "src/commit_gate_core/",
+      "test_command": "pytest -q",
+      "release_tag": "v0.1.0",
+      "receipt_shape": "RECEIPT.md"
+    },
+    {
+      "repo": "receipt-chain-core",
+      "url": "https://github.com/LalaSkye/receipt-chain-core",
+      "bounded_claim": "Within the scope of this artefact at the named release tag, treats prior decision receipts as inputs to the next admissibility decision.",
+      "proof_path": "src/receipt_chain_core/",
+      "test_command": "pytest -q",
+      "release_tag": "v0.1.0",
+      "receipt_shape": "docs/PROOF_PACK_v0.1.md"
+    },
+    {
+      "repo": "refusal-receipt-chain",
+      "url": "https://github.com/LalaSkye/refusal-receipt-chain",
+      "bounded_claim": "Within the scope of this artefact at the named release tag, emits a refusal receipt at the point admissibility fails.",
+      "proof_path": "./",
+      "test_command": "python chain_verify.py",
+      "release_tag": "v0.1.1-docs",
+      "receipt_shape": "sample_deny_receipt.json"
+    },
+    {
+      "repo": "fail-closed-ai",
+      "url": "https://github.com/LalaSkye/fail-closed-ai",
+      "bounded_claim": "Within the scope of this artefact at the named release tag, produces no downstream effect in the absence of a valid admissibility decision.",
+      "proof_path": "docs/neo-guard/neo_guard/",
+      "test_command": "cd docs/neo-guard && pytest -q",
+      "release_tag": "v0.1.0",
+      "receipt_shape": "docs/neo-guard/CHAIN_RECEIPT_v0.1.md"
+    }
+  ]
+}
