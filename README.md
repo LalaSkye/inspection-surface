@@ -41,6 +41,7 @@ It provides:
 - terminology
 - provenance and creation timeline
 - verification paths
+- [adversarial pre-review checklist](docs/adversarial-pre-review-checklist-v0.1.md) for claim surfaces before public exposure
 
 ## Public inspection standard
 
