@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/LalaSkye/inspection-surface/main/schema/surface.schema.json",
+  "title": "Inspection Surface v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "generated_at",
+    "verification_receipt",
+    "repos"
+  ],
+  "properties": {
+    "version": {
+      "const": 2
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "verification_receipt": {
+      "type": "string",
+      "pattern": "^receipts/.+\\.json$"
+    },
+    "repos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "bounded_claim",
+          "proof_path",
+          "test_command",
+          "receipt_shape",
+          "lifecycle_status",
+          "evidence_status",
+          "release_ref",
+          "commit_sha",
+          "verified_at_utc",
+          "replay_status"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "bounded_claim": {
+            "type": "string",
+            "minLength": 1
+          },
+          "proof_path": {
+            "type": "string"
+          },
+          "test_command": {
+            "type": "string",
+            "minLength": 1
+          },
+          "receipt_shape": {
+            "type": "string",
+            "minLength": 1
+          },
+          "lifecycle_status": {
+            "enum": [
+              "UNRELEASED",
+              "RELEASED"
+            ]
+          },
+          "evidence_status": {
+            "enum": [
+              "UNRELEASED",
+              "REF_RESOLVES",
+              "PATHS_RESOLVE",
+              "REPLAY_VERIFIED",
+              "REPLAY_FAILED",
+              "STALE",
+              "INVALID"
+            ]
+          },
+          "release_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "commit_sha": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          },
+          "verified_at_utc": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "replay_status": {
+            "enum": [
+              "NOT_RUN",
+              "PASSED",
+              "FAILED"
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "lifecycle_status": {
+                  "const": "RELEASED"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "release_ref": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "lifecycle_status": {
+                  "const": "UNRELEASED"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "release_ref": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
