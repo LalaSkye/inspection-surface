@@ -13,6 +13,8 @@
 # This file is governed by the release-discipline header in CHANGELOG.md.
 
 version: 1
+# Source-controlled so identical input produces identical generated output.
+generated_at: "2026-05-24T01:43:27+00:00"
 repos:
   - name: start-here
     bounded_claim: >
