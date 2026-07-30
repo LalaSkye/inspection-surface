@@ -19,7 +19,7 @@ Per-repo boundaries are defined by each repo's `CLAIM_BOUNDARY.md`,
 
 **Canonical entry point (live):** [lalaskye.github.io/inspection-surface](https://lalaskye.github.io/inspection-surface/)
 
-Full crawlable index of repos, papers, terminology, provenance, and inspection levels.
+A bounded index of selected public proof repositories and their declared inspection routes.
 
 ---
 
@@ -33,15 +33,16 @@ See [`NON-CLAIMS.md`](NON-CLAIMS.md) and [`PUBLIC_DISCLOSURE_BOUNDARY.md`](PUBLI
 
 ## What this repo is
 
-The canonical index for execution-boundary AI governance research by Ricky Dean Jones / AlvianTech.
+A bounded public index of selected execution-boundary proof artefacts by Ricky Dean Jones / AlvianTech.
 
 It provides:
-- repo index with inspection levels
-- system map
-- terminology
-- provenance and creation timeline
-- verification paths
+- selected public proof-repository entries
+- scope-qualified claims
+- declared replay commands and proof paths
+- canonical receipt paths
 - [adversarial pre-review checklist](docs/adversarial-pre-review-checklist-v0.1.md) for claim surfaces before public exposure
+
+It does not claim to inventory every repository, paper, private source, or governance object.
 
 ## Public inspection standard
 
