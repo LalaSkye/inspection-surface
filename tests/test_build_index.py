@@ -7,7 +7,8 @@ from pathlib import Path
 
 sys.modules.setdefault("yaml", types.SimpleNamespace(safe_load=lambda _: None))
 
-MODULE_PATH = Path(__file__).with_name("build_index.py")
+ROOT = Path(__file__).resolve().parents[1]
+MODULE_PATH = ROOT / "tools" / "build_index.py"
 spec = importlib.util.spec_from_file_location("build_index", MODULE_PATH)
 build_index = importlib.util.module_from_spec(spec)
 assert spec.loader is not None
