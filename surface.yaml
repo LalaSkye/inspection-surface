@@ -14,34 +14,34 @@
 
 version: 1
 # Source-controlled so identical input produces identical generated output.
-generated_at: "2026-05-24T01:43:27+00:00"
+generated_at: "2026-07-30T07:31:45+00:00"
 repos:
   - name: start-here
     bounded_claim: >
-      Within the scope of this artefact at the named release tag, provides
+      Within the scope of this unreleased inspection candidate, provides
       a single runnable entry point that exercises the minimal
       admissibility-before-effect demonstration.
     proof_path: src/
     test_command: "python run_demo.py"
-    release_tag: v0.1.0
+    release_tag: UNRELEASED
     receipt_shape: RECEIPT.md
 
   - name: commit-gate-core
     bounded_claim: >
-      Within the scope of this artefact at the named release tag, refuses
+      Within the scope of this unreleased inspection candidate, refuses
       state mutation in the absence of a valid DecisionRecord.
     proof_path: src/commit_gate_core/
     test_command: "pytest -q"
-    release_tag: v0.1.0
+    release_tag: UNRELEASED
     receipt_shape: RECEIPT.md
 
   - name: receipt-chain-core
     bounded_claim: >
-      Within the scope of this artefact at the named release tag, treats
+      Within the scope of this unreleased inspection candidate, treats
       prior decision receipts as inputs to the next admissibility decision.
     proof_path: src/receipt_chain_core/
     test_command: "pytest -q"
-    release_tag: v0.1.0
+    release_tag: UNRELEASED
     receipt_shape: docs/PROOF_PACK_v0.1.md
 
   - name: refusal-receipt-chain
@@ -55,9 +55,9 @@ repos:
 
   - name: fail-closed-ai
     bounded_claim: >
-      Within the scope of this artefact at the named release tag, produces
+      Within the scope of this unreleased inspection candidate, produces
       no downstream effect in the absence of a valid admissibility decision.
     proof_path: docs/neo-guard/neo_guard/
     test_command: "cd docs/neo-guard && pytest -q"
-    release_tag: v0.1.0
+    release_tag: UNRELEASED
     receipt_shape: docs/neo-guard/CHAIN_RECEIPT_v0.1.md
