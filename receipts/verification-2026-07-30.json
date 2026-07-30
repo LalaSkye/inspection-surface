@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-07-30T07:55:00+00:00",
+  "surface_version": 2,
+  "surface_sha256": "c51bf33d71da5aca40347984e4a240a033ec365f7180eccf489aa5eb637dfea6",
+  "entries": [
+    {
+      "repository": "start-here",
+      "commit_sha": "277e3e021fe33619011862cf6d08d8969383d70a",
+      "release_ref": null,
+      "repository_resolves": true,
+      "proof_path_resolves": true,
+      "receipt_path_resolves": true,
+      "replay_status": "NOT_RUN"
+    },
+    {
+      "repository": "commit-gate-core",
+      "commit_sha": "4af708e5b45be1560837363eddff8a16d11fa93b",
+      "release_ref": null,
+      "repository_resolves": true,
+      "proof_path_resolves": true,
+      "receipt_path_resolves": true,
+      "replay_status": "NOT_RUN"
+    },
+    {
+      "repository": "receipt-chain-core",
+      "commit_sha": "68b9b11293e7cec886bc1c7c11577895bb568284",
+      "release_ref": null,
+      "repository_resolves": true,
+      "proof_path_resolves": true,
+      "receipt_path_resolves": true,
+      "replay_status": "NOT_RUN"
+    },
+    {
+      "repository": "refusal-receipt-chain",
+      "commit_sha": "f712ceac1663f8779dabe53b06c68575d9596c4a",
+      "release_ref": "v0.1.1-docs",
+      "repository_resolves": true,
+      "proof_path_resolves": true,
+      "receipt_path_resolves": true,
+      "replay_status": "NOT_RUN"
+    },
+    {
+      "repository": "fail-closed-ai",
+      "commit_sha": "fb55cd5417663f4423a182208a916e1c4535e774",
+      "release_ref": null,
+      "repository_resolves": true,
+      "proof_path_resolves": true,
+      "receipt_path_resolves": true,
+      "replay_status": "NOT_RUN"
+    }
+  ],
+  "claim_limit": "This receipt records repository, reference, proof-path and receipt-path resolution only. It does not prove downstream claims or replay commands.",
+  "receipt_hash": "fe6fdfd000572b578d607b619655ada0e566e8459caa258d3a0ee9d6aa4ac29d"
+}
