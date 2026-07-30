@@ -25,6 +25,9 @@ jobs:
       - name: Install dependency
         run: pip install "PyYAML==6.0.2"
 
+      - name: Test generator
+        run: python -m unittest discover -s tests -v
+
       - name: Regenerate index
         run: python tools/build_index.py
 
