@@ -22,9 +22,26 @@ REQUIRED_REPO_FIELDS = {
     "bounded_claim",
     "proof_path",
     "test_command",
-    "release_tag",
     "receipt_shape",
+    "lifecycle_status",
+    "evidence_status",
+    "release_ref",
+    "commit_sha",
+    "verified_at_utc",
+    "replay_status",
 }
+LIFECYCLE_STATUSES = {"UNRELEASED", "RELEASED"}
+EVIDENCE_STATUSES = {
+    "UNRELEASED",
+    "REF_RESOLVES",
+    "PATHS_RESOLVE",
+    "REPLAY_VERIFIED",
+    "REPLAY_FAILED",
+    "STALE",
+    "INVALID",
+}
+REPLAY_STATUSES = {"NOT_RUN", "PASSED", "FAILED"}
+SHA40 = re.compile(r"^[0-9a-f]{40}$")
 
 
 def load_surface() -> dict:
@@ -32,25 +49,23 @@ def load_surface() -> dict:
         return yaml.safe_load(fh)
 
 
-def build_index(surface: dict) -> dict:
-    generated_at = surface.get("generated_at")
-    if not isinstance(generated_at, str) or not generated_at:
-        raise ValueError("surface.generated_at must be a non-empty string")
+def _validate_utc(value: object, field: str) -> str:
+    if not isinstance(value, str) or not value:
+        raise ValueError(f"{field} must be a non-empty string")
     try:
-        parsed_generated_at = datetime.fromisoformat(
-            generated_at.replace("Z", "+00:00")
-        )
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
     except ValueError as exc:
-        raise ValueError(
-            "surface.generated_at must be a valid ISO-8601 timestamp"
-        ) from exc
-    if (
-        parsed_generated_at.tzinfo is None
-        or parsed_generated_at.utcoffset() != timezone.utc.utcoffset(
-            parsed_generated_at
-        )
-    ):
-        raise ValueError("surface.generated_at must use UTC")
+        raise ValueError(f"{field} must be a valid ISO-8601 timestamp") from exc
+    if parsed.tzinfo is None or parsed.utcoffset() != timezone.utc.utcoffset(parsed):
+        raise ValueError(f"{field} must use UTC")
+    return value
+
+
+def build_index(surface: dict) -> dict:
+    generated_at = _validate_utc(surface.get("generated_at"), "surface.generated_at")
+    verification_receipt = surface.get("verification_receipt")
+    if not isinstance(verification_receipt, str) or not verification_receipt:
+        raise ValueError("surface.verification_receipt must be a non-empty string")
 
     repos = surface.get("repos")
     if not isinstance(repos, list):
@@ -59,54 +74,86 @@ def build_index(surface: dict) -> dict:
     rows = []
     seen_names = set()
     for position, repo in enumerate(repos):
+        prefix = f"surface.repos[{position}]"
         if not isinstance(repo, dict):
-            raise ValueError(f"surface.repos[{position}] must be an object")
+            raise ValueError(f"{prefix} must be an object")
         missing = REQUIRED_REPO_FIELDS - set(repo)
         if missing:
-            raise ValueError(
-                f"surface.repos[{position}] missing fields: {sorted(missing)}"
-            )
+            raise ValueError(f"{prefix} missing fields: {sorted(missing)}")
         name = repo["name"]
         if not isinstance(name, str) or not name:
-            raise ValueError(f"surface.repos[{position}].name must be non-empty")
+            raise ValueError(f"{prefix}.name must be non-empty")
         if name in seen_names:
             raise ValueError(f"duplicate repository name: {name}")
         seen_names.add(name)
+
+        lifecycle = repo["lifecycle_status"]
+        evidence = repo["evidence_status"]
+        replay = repo["replay_status"]
+        release_ref = repo["release_ref"]
+        commit_sha = repo["commit_sha"]
+        if lifecycle not in LIFECYCLE_STATUSES:
+            raise ValueError(f"{prefix}.lifecycle_status is invalid")
+        if evidence not in EVIDENCE_STATUSES:
+            raise ValueError(f"{prefix}.evidence_status is invalid")
+        if replay not in REPLAY_STATUSES:
+            raise ValueError(f"{prefix}.replay_status is invalid")
+        if not isinstance(commit_sha, str) or not SHA40.fullmatch(commit_sha):
+            raise ValueError(f"{prefix}.commit_sha must be a lowercase 40-character SHA")
+        if lifecycle == "RELEASED" and (
+            not isinstance(release_ref, str) or not release_ref
+        ):
+            raise ValueError(f"{prefix}.release_ref is required when RELEASED")
+        if lifecycle == "UNRELEASED" and release_ref is not None:
+            raise ValueError(f"{prefix}.release_ref must be null when UNRELEASED")
+        verified_at = _validate_utc(repo["verified_at_utc"], f"{prefix}.verified_at_utc")
+
         rows.append({
             "repo": name,
             "url": f"https://github.com/{OWNER}/{name}",
             "bounded_claim": " ".join(repo["bounded_claim"].split()),
+            "lifecycle_status": lifecycle,
+            "evidence_status": evidence,
+            "release_ref": release_ref,
+            "commit_sha": commit_sha,
+            "verified_at_utc": verified_at,
+            "replay_status": replay,
             "proof_path": repo["proof_path"],
             "test_command": repo["test_command"],
-            "release_tag": repo["release_tag"],
             "receipt_shape": repo["receipt_shape"],
         })
     return {
-        "schema_version": surface.get("version", 1),
+        "schema_version": surface.get("version", 2),
         "generated_at": generated_at,
+        "verification_receipt": verification_receipt,
         "owner": OWNER,
         "rows": rows,
     }
 
-
 def render_table(index: dict) -> str:
     header = (
-        "| Repo | Bounded claim | Proof path | Test command | Tag | Receipt |\n"
-        "|------|---------------|------------|--------------|-----|---------|"
+        "| Repo | Evidence | Lifecycle | Ref | Commit | Replay | Proof | Receipt |\n"
+        "|------|----------|-----------|-----|--------|--------|-------|---------|"
     )
     lines = [header]
     for row in index["rows"]:
+        release_ref = row["release_ref"] or "—"
         lines.append(
             f"| [{row['repo']}]({row['url']}) "
-            f"| {row['bounded_claim']} "
+            f"| `{row['evidence_status']}` "
+            f"| `{row['lifecycle_status']}` "
+            f"| `{release_ref}` "
+            f"| [`{row['commit_sha'][:7]}`]({row['url']}/commit/{row['commit_sha']}) "
+            f"| `{row['replay_status']}` "
             f"| `{row['proof_path']}` "
-            f"| `{row['test_command']}` "
-            f"| `{row['release_tag']}` "
             f"| `{row['receipt_shape']}` |"
         )
-    footer = f"\n\n_Generated {index['generated_at']} from `surface.yaml`._"
+    footer = (
+        f"\n\n_Generated {index['generated_at']} from `surface.yaml`. "
+        f"Verification receipt: [{index['verification_receipt']}]"
+        f"({index['verification_receipt']})._"
+    )
     return "\n".join(lines) + footer
-
 
 def splice_readme(table_md: str) -> None:
     text = README.read_text(encoding="utf-8")
