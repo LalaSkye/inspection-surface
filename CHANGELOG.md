@@ -22,6 +22,25 @@ Format: Keep a Changelog. Versioning: SemVer.
 
 ---
 
+## [v0.2.0] - unreleased
+
+### Added
+- commit-pinned downstream evidence entries
+- explicit lifecycle, evidence and replay states
+- machine-readable surface schema
+- hash-consistent verification receipt
+- repository-level claim and receipt boundaries
+- CI receipt-consistency verification
+
+### Changed
+- generated index now distinguishes declarations, observed path resolution and replay status
+- unreleased entries remain explicit and do not imply a release tag
+
+### Claim limit
+Structural and path-resolution evidence does not prove downstream claims or replay success.
+
+---
+
 ## [v0.1.0] - unreleased
 
 ### Added
