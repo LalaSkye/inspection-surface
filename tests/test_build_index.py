@@ -44,6 +44,21 @@ class BuildIndexTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "generated_at"):
             build_index.build_index(self.surface)
 
+    def test_invalid_generated_at_fails(self):
+        self.surface["generated_at"] = "not-a-timestamp"
+        with self.assertRaisesRegex(ValueError, "ISO-8601"):
+            build_index.build_index(self.surface)
+
+    def test_naive_generated_at_fails(self):
+        self.surface["generated_at"] = "2026-05-24T01:43:27"
+        with self.assertRaisesRegex(ValueError, "UTC"):
+            build_index.build_index(self.surface)
+
+    def test_non_utc_generated_at_fails(self):
+        self.surface["generated_at"] = "2026-05-24T02:43:27+01:00"
+        with self.assertRaisesRegex(ValueError, "UTC"):
+            build_index.build_index(self.surface)
+
     def test_duplicate_repository_fails(self):
         self.surface["repos"].append(copy.deepcopy(self.surface["repos"][0]))
         with self.assertRaisesRegex(ValueError, "duplicate"):
