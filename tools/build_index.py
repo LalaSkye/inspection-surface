@@ -8,7 +8,7 @@ import sys
 
 import yaml
 
-ROOT = pathlib.Path(__file__).resolve().parent
+ROOT = pathlib.Path(__file__).resolve().parents[1]
 SRC = ROOT / "surface.yaml"
 OUT_JSON = ROOT / "index.json"
 README = ROOT / "README.md"
