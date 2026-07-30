@@ -1,24 +1,14 @@
 #!/usr/bin/env python3
-"""
-Build the inspection-surface index from surface.yaml.
-
-Outputs:
-  - index.json           : machine-readable index
-  - README.md (table)    : human-readable index, between markers
-
-No claims are added here. This script only reflects surface.yaml.
-"""
 from __future__ import annotations
 
 import json
 import pathlib
 import re
 import sys
-from datetime import datetime, timezone
 
-import yaml  # PyYAML
+import yaml
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
+ROOT = pathlib.Path(__file__).resolve().parent
 SRC = ROOT / "surface.yaml"
 OUT_JSON = ROOT / "index.json"
 README = ROOT / "README.md"
@@ -26,6 +16,14 @@ OWNER = "LalaSkye"
 
 START = "<!-- INDEX:START -->"
 END = "<!-- INDEX:END -->"
+REQUIRED_REPO_FIELDS = {
+    "name",
+    "bounded_claim",
+    "proof_path",
+    "test_command",
+    "release_tag",
+    "receipt_shape",
+}
 
 
 def load_surface() -> dict:
@@ -34,12 +32,33 @@ def load_surface() -> dict:
 
 
 def build_index(surface: dict) -> dict:
-    now = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    generated_at = surface.get("generated_at")
+    if not isinstance(generated_at, str) or not generated_at:
+        raise ValueError("surface.generated_at must be a non-empty string")
+
+    repos = surface.get("repos")
+    if not isinstance(repos, list):
+        raise ValueError("surface.repos must be a list")
+
     rows = []
-    for repo in surface["repos"]:
+    seen_names = set()
+    for position, repo in enumerate(repos):
+        if not isinstance(repo, dict):
+            raise ValueError(f"surface.repos[{position}] must be an object")
+        missing = REQUIRED_REPO_FIELDS - set(repo)
+        if missing:
+            raise ValueError(
+                f"surface.repos[{position}] missing fields: {sorted(missing)}"
+            )
+        name = repo["name"]
+        if not isinstance(name, str) or not name:
+            raise ValueError(f"surface.repos[{position}].name must be non-empty")
+        if name in seen_names:
+            raise ValueError(f"duplicate repository name: {name}")
+        seen_names.add(name)
         rows.append({
-            "repo": repo["name"],
-            "url": f"https://github.com/{OWNER}/{repo['name']}",
+            "repo": name,
+            "url": f"https://github.com/{OWNER}/{name}",
             "bounded_claim": " ".join(repo["bounded_claim"].split()),
             "proof_path": repo["proof_path"],
             "test_command": repo["test_command"],
@@ -48,7 +67,7 @@ def build_index(surface: dict) -> dict:
         })
     return {
         "schema_version": surface.get("version", 1),
-        "generated_at": now,
+        "generated_at": generated_at,
         "owner": OWNER,
         "rows": rows,
     }
@@ -60,14 +79,14 @@ def render_table(index: dict) -> str:
         "|------|---------------|------------|--------------|-----|---------|"
     )
     lines = [header]
-    for r in index["rows"]:
+    for row in index["rows"]:
         lines.append(
-            f"| [{r['repo']}]({r['url']}) "
-            f"| {r['bounded_claim']} "
-            f"| `{r['proof_path']}` "
-            f"| `{r['test_command']}` "
-            f"| `{r['release_tag']}` "
-            f"| `{r['receipt_shape']}` |"
+            f"| [{row['repo']}]({row['url']}) "
+            f"| {row['bounded_claim']} "
+            f"| `{row['proof_path']}` "
+            f"| `{row['test_command']}` "
+            f"| `{row['release_tag']}` "
+            f"| `{row['receipt_shape']}` |"
         )
     footer = f"\n\n_Generated {index['generated_at']} from `surface.yaml`._"
     return "\n".join(lines) + footer
@@ -100,3 +119,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
