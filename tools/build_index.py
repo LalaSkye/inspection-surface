@@ -5,6 +5,7 @@ import json
 import pathlib
 import re
 import sys
+from datetime import datetime, timezone
 
 import yaml
 
@@ -35,6 +36,21 @@ def build_index(surface: dict) -> dict:
     generated_at = surface.get("generated_at")
     if not isinstance(generated_at, str) or not generated_at:
         raise ValueError("surface.generated_at must be a non-empty string")
+    try:
+        parsed_generated_at = datetime.fromisoformat(
+            generated_at.replace("Z", "+00:00")
+        )
+    except ValueError as exc:
+        raise ValueError(
+            "surface.generated_at must be a valid ISO-8601 timestamp"
+        ) from exc
+    if (
+        parsed_generated_at.tzinfo is None
+        or parsed_generated_at.utcoffset() != timezone.utc.utcoffset(
+            parsed_generated_at
+        )
+    ):
+        raise ValueError("surface.generated_at must use UTC")
 
     repos = surface.get("repos")
     if not isinstance(repos, list):

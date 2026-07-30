@@ -44,6 +44,14 @@ It provides:
 
 It does not claim to inventory every repository, paper, private source, or governance object.
 
+## What automation verifies
+
+The workflow runs structural tests and regenerates `index.json` and the README index from `surface.yaml`. On pull requests, it fails if the committed generated outputs differ from the source record.
+
+Automation verifies deterministic generation, required fields, unique repository names, UTC timestamp format, and generated-file consistency.
+
+It does **not** independently verify downstream release tags, receipt paths, repository claims, or replay commands. Those remain declarations bounded by their referenced artefacts.
+
 ## Public inspection standard
 
 ```text
