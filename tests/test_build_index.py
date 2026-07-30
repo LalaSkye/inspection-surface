@@ -20,13 +20,19 @@ class BuildIndexTests(unittest.TestCase):
         self.surface = {
             "version": 1,
             "generated_at": "2026-05-24T01:43:27+00:00",
+            "verification_receipt": "receipts/verification.json",
             "repos": [{
                 "name": "example",
                 "bounded_claim": "A bounded\n claim.",
                 "proof_path": "src/",
                 "test_command": "python demo.py",
-                "release_tag": "v0.1.0",
                 "receipt_shape": "RECEIPT.md",
+                "lifecycle_status": "UNRELEASED",
+                "evidence_status": "PATHS_RESOLVE",
+                "release_ref": None,
+                "commit_sha": "a" * 40,
+                "verified_at_utc": "2026-05-24T01:43:27+00:00",
+                "replay_status": "NOT_RUN",
             }],
         }
 
@@ -57,6 +63,31 @@ class BuildIndexTests(unittest.TestCase):
     def test_non_utc_generated_at_fails(self):
         self.surface["generated_at"] = "2026-05-24T02:43:27+01:00"
         with self.assertRaisesRegex(ValueError, "UTC"):
+            build_index.build_index(self.surface)
+
+    def test_missing_verification_receipt_fails(self):
+        del self.surface["verification_receipt"]
+        with self.assertRaisesRegex(ValueError, "verification_receipt"):
+            build_index.build_index(self.surface)
+
+    def test_invalid_commit_sha_fails(self):
+        self.surface["repos"][0]["commit_sha"] = "not-a-sha"
+        with self.assertRaisesRegex(ValueError, "commit_sha"):
+            build_index.build_index(self.surface)
+
+    def test_released_entry_requires_ref(self):
+        self.surface["repos"][0]["lifecycle_status"] = "RELEASED"
+        with self.assertRaisesRegex(ValueError, "release_ref"):
+            build_index.build_index(self.surface)
+
+    def test_unreleased_entry_rejects_ref(self):
+        self.surface["repos"][0]["release_ref"] = "v0.1.0"
+        with self.assertRaisesRegex(ValueError, "release_ref"):
+            build_index.build_index(self.surface)
+
+    def test_invalid_evidence_status_fails(self):
+        self.surface["repos"][0]["evidence_status"] = "PROVED"
+        with self.assertRaisesRegex(ValueError, "evidence_status"):
             build_index.build_index(self.surface)
 
     def test_duplicate_repository_fails(self):
