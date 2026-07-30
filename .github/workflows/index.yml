@@ -5,6 +5,12 @@ on:
       - "surface.yaml"
       - "tools/build_index.py"
       - ".github/workflows/index.yml"
+  pull_request:
+    paths:
+      - "surface.yaml"
+      - "tools/build_index.py"
+      - "tests/**"
+      - ".github/workflows/index.yml"
   workflow_dispatch:
 
 permissions:
@@ -25,10 +31,18 @@ jobs:
       - name: Install dependency
         run: pip install "PyYAML==6.0.2"
 
+      - name: Test generator
+        run: python -m unittest discover -s tests -v
+
       - name: Regenerate index
         run: python tools/build_index.py
 
+      - name: Verify generated files are current
+        if: github.event_name == 'pull_request'
+        run: git diff --exit-code -- index.json README.md
+
       - name: Commit regenerated index
+        if: github.event_name != 'pull_request'
         run: |
           if [[ -n "$(git status --porcelain)" ]]; then
             git config user.name  "github-actions[bot]"

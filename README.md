@@ -19,7 +19,7 @@ Per-repo boundaries are defined by each repo's `CLAIM_BOUNDARY.md`,
 
 **Canonical entry point (live):** [lalaskye.github.io/inspection-surface](https://lalaskye.github.io/inspection-surface/)
 
-Full crawlable index of repos, papers, terminology, provenance, and inspection levels.
+A bounded index of selected public proof repositories and their declared inspection routes.
 
 ---
 
@@ -33,15 +33,16 @@ See [`NON-CLAIMS.md`](NON-CLAIMS.md) and [`PUBLIC_DISCLOSURE_BOUNDARY.md`](PUBLI
 
 ## What this repo is
 
-The canonical index for execution-boundary AI governance research by Ricky Dean Jones / AlvianTech.
+A bounded public index of selected execution-boundary proof artefacts by Ricky Dean Jones / AlvianTech.
 
 It provides:
-- repo index with inspection levels
-- system map
-- terminology
-- provenance and creation timeline
-- verification paths
+- selected public proof-repository entries
+- scope-qualified claims
+- declared replay commands and proof paths
+- canonical receipt paths
 - [adversarial pre-review checklist](docs/adversarial-pre-review-checklist-v0.1.md) for claim surfaces before public exposure
+
+It does not claim to inventory every repository, paper, private source, or governance object.
 
 ## Public inspection standard
 
@@ -56,13 +57,13 @@ Each public proof surface should be read only at its stated scope.
 <!-- INDEX:START -->
 | Repo | Bounded claim | Proof path | Test command | Tag | Receipt |
 |------|---------------|------------|--------------|-----|---------|
-| [start-here](https://github.com/LalaSkye/start-here) | Within the scope of this artefact at the named release tag, provides a single runnable entry point that exercises the minimal admissibility-before-effect demonstration. | `src/` | `python run_demo.py` | `v0.1.0` | `RECEIPT.md` |
-| [commit-gate-core](https://github.com/LalaSkye/commit-gate-core) | Within the scope of this artefact at the named release tag, refuses state mutation in the absence of a valid DecisionRecord. | `src/commit_gate_core/` | `pytest -q` | `v0.1.0` | `RECEIPT.md` |
-| [receipt-chain-core](https://github.com/LalaSkye/receipt-chain-core) | Within the scope of this artefact at the named release tag, treats prior decision receipts as inputs to the next admissibility decision. | `src/receipt_chain_core/` | `pytest -q` | `v0.1.0` | `docs/PROOF_PACK_v0.1.md` |
+| [start-here](https://github.com/LalaSkye/start-here) | Within the scope of this unreleased inspection candidate, provides a single runnable entry point that exercises the minimal admissibility-before-effect demonstration. | `src/` | `python run_demo.py` | `UNRELEASED` | `RECEIPT.md` |
+| [commit-gate-core](https://github.com/LalaSkye/commit-gate-core) | Within the scope of this unreleased inspection candidate, refuses state mutation in the absence of a valid DecisionRecord. | `src/commit_gate_core/` | `pytest -q` | `UNRELEASED` | `RECEIPT.md` |
+| [receipt-chain-core](https://github.com/LalaSkye/receipt-chain-core) | Within the scope of this unreleased inspection candidate, treats prior decision receipts as inputs to the next admissibility decision. | `src/receipt_chain_core/` | `pytest -q` | `UNRELEASED` | `docs/PROOF_PACK_v0.1.md` |
 | [refusal-receipt-chain](https://github.com/LalaSkye/refusal-receipt-chain) | Within the scope of this artefact at the named release tag, emits a refusal receipt at the point admissibility fails. | `./` | `python chain_verify.py` | `v0.1.1-docs` | `sample_deny_receipt.json` |
-| [fail-closed-ai](https://github.com/LalaSkye/fail-closed-ai) | Within the scope of this artefact at the named release tag, produces no downstream effect in the absence of a valid admissibility decision. | `docs/neo-guard/neo_guard/` | `cd docs/neo-guard && pytest -q` | `v0.1.0` | `docs/neo-guard/CHAIN_RECEIPT_v0.1.md` |
+| [fail-closed-ai](https://github.com/LalaSkye/fail-closed-ai) | Within the scope of this unreleased inspection candidate, produces no downstream effect in the absence of a valid admissibility decision. | `docs/neo-guard/neo_guard/` | `cd docs/neo-guard && pytest -q` | `UNRELEASED` | `docs/neo-guard/CHAIN_RECEIPT_v0.1.md` |
 
-_Generated 2026-05-24T01:43:27+00:00 from `surface.yaml`._
+_Generated 2026-07-30T07:31:45+00:00 from `surface.yaml`._
 <!-- INDEX:END -->
 
 _Edit `surface.yaml` and push; `.github/workflows/index.yml` regenerates the table above._
