@@ -40,6 +40,8 @@ It provides:
 - scope-qualified claims
 - declared replay commands and proof paths
 - canonical receipt paths
+- commit-pinned evidence and lifecycle states
+- hash-consistent [verification receipts](RECEIPT.md)
 - [adversarial pre-review checklist](docs/adversarial-pre-review-checklist-v0.1.md) for claim surfaces before public exposure
 
 It does not claim to inventory every repository, paper, private source, or governance object.
@@ -52,6 +54,12 @@ Automation verifies deterministic generation, required fields, unique repository
 
 It does **not** independently verify downstream release tags, receipt paths, repository claims, or replay commands. Those remain declarations bounded by their referenced artefacts.
 
+## Evidence model
+
+Each entry separates lifecycle, structural evidence, and replay state. A pinned commit is stable; a moving branch is not evidence. `PATHS_RESOLVE` means the repository, proof path, and receipt path were observed at the pinned commit. `NOT_RUN` means no replay result is claimed.
+
+See [CLAIM_BOUNDARY.md](CLAIM_BOUNDARY.md), [RECEIPT.md](RECEIPT.md), and the [v0.2 schema](schema/surface.schema.json).
+
 ## Public inspection standard
 
 ```text
@@ -63,15 +71,15 @@ Each public proof surface should be read only at its stated scope.
 ## Inspection surface index
 
 <!-- INDEX:START -->
-| Repo | Bounded claim | Proof path | Test command | Tag | Receipt |
-|------|---------------|------------|--------------|-----|---------|
-| [start-here](https://github.com/LalaSkye/start-here) | Within the scope of this unreleased inspection candidate, provides a single runnable entry point that exercises the minimal admissibility-before-effect demonstration. | `src/` | `python run_demo.py` | `UNRELEASED` | `RECEIPT.md` |
-| [commit-gate-core](https://github.com/LalaSkye/commit-gate-core) | Within the scope of this unreleased inspection candidate, refuses state mutation in the absence of a valid DecisionRecord. | `src/commit_gate_core/` | `pytest -q` | `UNRELEASED` | `RECEIPT.md` |
-| [receipt-chain-core](https://github.com/LalaSkye/receipt-chain-core) | Within the scope of this unreleased inspection candidate, treats prior decision receipts as inputs to the next admissibility decision. | `src/receipt_chain_core/` | `pytest -q` | `UNRELEASED` | `docs/PROOF_PACK_v0.1.md` |
-| [refusal-receipt-chain](https://github.com/LalaSkye/refusal-receipt-chain) | Within the scope of this artefact at the named release tag, emits a refusal receipt at the point admissibility fails. | `./` | `python chain_verify.py` | `v0.1.1-docs` | `sample_deny_receipt.json` |
-| [fail-closed-ai](https://github.com/LalaSkye/fail-closed-ai) | Within the scope of this unreleased inspection candidate, produces no downstream effect in the absence of a valid admissibility decision. | `docs/neo-guard/neo_guard/` | `cd docs/neo-guard && pytest -q` | `UNRELEASED` | `docs/neo-guard/CHAIN_RECEIPT_v0.1.md` |
+| Repo | Evidence | Lifecycle | Ref | Commit | Replay | Proof | Receipt |
+|------|----------|-----------|-----|--------|--------|-------|---------|
+| [start-here](https://github.com/LalaSkye/start-here) | `PATHS_RESOLVE` | `UNRELEASED` | `—` | [`277e3e0`](https://github.com/LalaSkye/start-here/commit/277e3e021fe33619011862cf6d08d8969383d70a) | `NOT_RUN` | `src/` | `RECEIPT.md` |
+| [commit-gate-core](https://github.com/LalaSkye/commit-gate-core) | `PATHS_RESOLVE` | `UNRELEASED` | `—` | [`4af708e`](https://github.com/LalaSkye/commit-gate-core/commit/4af708e5b45be1560837363eddff8a16d11fa93b) | `NOT_RUN` | `src/commit_gate_core/` | `RECEIPT.md` |
+| [receipt-chain-core](https://github.com/LalaSkye/receipt-chain-core) | `PATHS_RESOLVE` | `UNRELEASED` | `—` | [`68b9b11`](https://github.com/LalaSkye/receipt-chain-core/commit/68b9b11293e7cec886bc1c7c11577895bb568284) | `NOT_RUN` | `src/receipt_chain_core/` | `docs/PROOF_PACK_v0.1.md` |
+| [refusal-receipt-chain](https://github.com/LalaSkye/refusal-receipt-chain) | `PATHS_RESOLVE` | `RELEASED` | `v0.1.1-docs` | [`f712cea`](https://github.com/LalaSkye/refusal-receipt-chain/commit/f712ceac1663f8779dabe53b06c68575d9596c4a) | `NOT_RUN` | `./` | `sample_deny_receipt.json` |
+| [fail-closed-ai](https://github.com/LalaSkye/fail-closed-ai) | `PATHS_RESOLVE` | `UNRELEASED` | `—` | [`fb55cd5`](https://github.com/LalaSkye/fail-closed-ai/commit/fb55cd5417663f4423a182208a916e1c4535e774) | `NOT_RUN` | `docs/neo-guard/neo_guard/` | `docs/neo-guard/CHAIN_RECEIPT_v0.1.md` |
 
-_Generated 2026-07-30T07:31:45+00:00 from `surface.yaml`._
+_Generated 2026-07-30T07:55:00+00:00 from `surface.yaml`. Verification receipt: [receipts/verification-2026-07-30.json](receipts/verification-2026-07-30.json)._
 <!-- INDEX:END -->
 
 _Edit `surface.yaml` and push; `.github/workflows/index.yml` regenerates the table above._
