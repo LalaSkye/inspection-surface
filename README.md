@@ -84,11 +84,15 @@ _Generated 2026-07-30T07:55:00+00:00 from `surface.yaml`. Verification receipt: 
 
 _Edit `surface.yaml` and push; `.github/workflows/index.yml` regenerates the table above._
 
+The generated table is pinned to older commits. It is an index snapshot, not a claim that those SHAs are current `main`.
+
 ## Key repos
 
-**New to this work:** [start-here](https://github.com/LalaSkye/start-here)
+**New to this work:** [start-here](https://github.com/LalaSkye/start-here) — path-local mutation demo
 
-**Core execution-boundary proof:** [commit-gate-core](https://github.com/LalaSkye/commit-gate-core)
+**Authorize-only kernel:** [commit-gate-core](https://github.com/LalaSkye/commit-gate-core) — binds exact payload bytes; does not apply them. Do not read this as a mutation gate.
+
+**Standing versus admission:** [obligation-bound-policy-admission-lab](https://github.com/LalaSkye/obligation-bound-policy-admission-lab)
 
 **Receipt and interrupt evidence:** [interrupt-ledger](https://github.com/LalaSkye/interrupt-ledger)
 
