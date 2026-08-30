@@ -8,7 +8,7 @@ other rows.
 ```bash
 git clone https://github.com/LalaSkye/start-here.git
 cd start-here
-git checkout 6d2fed7724f546f4b7165ac38cca32f4e40b023e
+git checkout ebe5cd58ca3c4f87b13b1803e6281aa03027b0c9
 python run_demo.py
 ```
 
