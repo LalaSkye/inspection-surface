@@ -1,71 +1,40 @@
-# Verification Path
+# Ten-Minute Inspection Path
 
-If any governed action can execute without a valid decision record, the invariant is violated.
+Each command inspects a separate pinned object. Do not transfer a result to the
+other rows.
 
-## Step 1: Run the proof
-
-```bash
-git clone https://github.com/LalaSkye/runtime-commit-gate-demo
-cd runtime-commit-gate-demo
-pip install -r requirements.txt
-python demo/run_demo.py
-```
-
-Expected output:
-- Step 1: no decision -> BLOCKED
-- Step 2: valid decision -> ALLOWED
-- Step 3: replay -> BLOCKED
-- Step 4: scope mismatch -> BLOCKED
-- Step 5: expired -> BLOCKED
-
-## Step 2: Run the tests
+## 1. Path-local mutation demo
 
 ```bash
-python -m pytest tests/ -v
+git clone https://github.com/LalaSkye/start-here.git
+cd start-here
+git checkout 6d2fed7724f546f4b7165ac38cca32f4e40b023e
+python run_demo.py
 ```
 
-Expected: 13 tests passing.
+Ceiling: demonstrated path only; not production or architecture-wide control.
 
-## Step 3: Read the gate
-
-Open `src/gate.py`. Read the 10 checks. Each check has a failure code. First failure stops evaluation.
-
-No configuration. No external calls. No inference.
-
-## Step 4: Check the timeline
+## 2. Authorize-only kernel
 
 ```bash
-gh api repos/LalaSkye/runtime-commit-gate-demo/commits --jq '.[].commit | {date: .author.date, message: .message}'
+git clone https://github.com/LalaSkye/commit-gate-core.git
+cd commit-gate-core
+git checkout a473af4a1fe3af81fe3c6442bdd75331f6a8126b
+python -m pip install -e ".[dev]"
+PYTHONPATH=src python -m pytest tests/test_authorize.py tests/test_beau_failure_classes.py -q
 ```
 
-Or visit the commit history on GitHub. All timestamps are recorded by GitHub, not by the author.
+Ceiling: payload-bound authorisation only. The kernel does not apply payloads
+or stop an external caller using another route.
 
-## Step 5: Check the broader work
-
-The commit gate demo is one repository. The supporting primitives go back to February 2026:
+## 3. Admission/standing/state harness
 
 ```bash
-gh repo list LalaSkye --json name,createdAt --jq '.[] | {name, createdAt}' --limit 20
+git clone https://github.com/LalaSkye/obligation-bound-policy-admission-lab.git
+cd obligation-bound-policy-admission-lab
+git checkout 0ac95d3439cf4ef79d2dc6873680c4be93cd0850
+PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
-## Step 6: Compare terminology
-
-Read the code. Compare to any external system. Note:
-
-- Different function names
-- Different data structures
-- Different check sequences
-- Different terminology
-
-## Step 7: Read PROVENANCE.md
-
-Every repository includes a provenance statement declaring independent authorship and non-claims.
-
-## What you should find
-
-- Working code
-- Deterministic checks
-- Failing tests for bypass attempts
-- Public timestamps
-- Standard engineering patterns
-- No external dependencies beyond Python stdlib + FastAPI (for optional API)
+Ceiling: single-engine, single-writer, in-memory harness with self-authored
+fixtures and oracles. It is not a production gate or external adversary result.

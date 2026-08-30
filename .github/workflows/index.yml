@@ -40,7 +40,7 @@ jobs:
         run: python -m unittest discover -s tests -v
 
       - name: Verify evidence receipt
-        run: python tools/verify_evidence_receipt.py receipts/verification-2026-07-30.json
+        run: python tools/verify_evidence_receipt.py receipts/verification-2026-08-30.json
 
       - name: Regenerate index
         run: python tools/build_index.py

@@ -4,6 +4,10 @@ Verification receipts are machine-readable records under `receipts/`.
 
 The current receipt is:
 
+- [verification-2026-08-30.json](receipts/verification-2026-08-30.json)
+
+The earlier five-repository receipt remains available as a historical record:
+
 - [verification-2026-07-30.json](receipts/verification-2026-07-30.json)
 
 A receipt records the source hash, pinned downstream commits, reference/path

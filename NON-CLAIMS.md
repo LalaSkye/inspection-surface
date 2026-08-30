@@ -14,6 +14,8 @@ It does not claim:
 - path-universal governance
 - tamper-proofing or non-bypassability
 - that governance is complete or exhaustive
+- that indexed objects compose into one architecture
+- originality, category priority, copying, adoption or endorsement
 
 ## What it does claim
 
@@ -31,8 +33,8 @@ claim → evidence object → inspection path → claim limit
 
 Read this repository at its stated scope only. Do not infer wider system behaviour from a local proof.
 
-## Research Surface Map
+## Routing
 
-This repository is one node in a coherent governance research surface.
-
-Full index, provenance, and cross-links: [Research Surface Map](https://lalaSkye.github.io/inspection-surface/)
+This repository is a secondary index. The primary public entry point is
+[start-here](https://github.com/LalaSkye/start-here). Each indexed object keeps
+its own claim and evidence boundary.
