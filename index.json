@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-30T05:42:48+00:00",
+  "generated_at": "2026-08-30T05:58:10+00:00",
   "verification_receipt": "receipts/verification-2026-08-30.json",
   "owner": "LalaSkye",
   "rows": [
@@ -11,8 +11,8 @@
       "lifecycle_status": "UNRELEASED",
       "evidence_status": "PATHS_RESOLVE",
       "release_ref": null,
-      "commit_sha": "6d2fed7724f546f4b7165ac38cca32f4e40b023e",
-      "verified_at_utc": "2026-08-30T05:42:48+00:00",
+      "commit_sha": "ebe5cd58ca3c4f87b13b1803e6281aa03027b0c9",
+      "verified_at_utc": "2026-08-30T05:58:10+00:00",
       "replay_status": "NOT_RUN",
       "proof_path": "run_demo.py",
       "test_command": "python run_demo.py",

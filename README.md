@@ -18,11 +18,11 @@ index does not claim a fresh replay result.
 <!-- INDEX:START -->
 | Repo | Evidence | Lifecycle | Ref | Commit | Replay | Proof | Receipt |
 |------|----------|-----------|-----|--------|--------|-------|---------|
-| [start-here](https://github.com/LalaSkye/start-here) | `PATHS_RESOLVE` | `UNRELEASED` | `—` | [`6d2fed7`](https://github.com/LalaSkye/start-here/commit/6d2fed7724f546f4b7165ac38cca32f4e40b023e) | `NOT_RUN` | `run_demo.py` | `RECEIPT.md` |
+| [start-here](https://github.com/LalaSkye/start-here) | `PATHS_RESOLVE` | `UNRELEASED` | `—` | [`ebe5cd5`](https://github.com/LalaSkye/start-here/commit/ebe5cd58ca3c4f87b13b1803e6281aa03027b0c9) | `NOT_RUN` | `run_demo.py` | `RECEIPT.md` |
 | [commit-gate-core](https://github.com/LalaSkye/commit-gate-core) | `PATHS_RESOLVE` | `UNRELEASED` | `—` | [`a473af4`](https://github.com/LalaSkye/commit-gate-core/commit/a473af4a1fe3af81fe3c6442bdd75331f6a8126b) | `NOT_RUN` | `src/commit_gate_core/authorize.py` | `RECEIPT.md` |
 | [obligation-bound-policy-admission-lab](https://github.com/LalaSkye/obligation-bound-policy-admission-lab) | `PATHS_RESOLVE` | `UNRELEASED` | `—` | [`0ac95d3`](https://github.com/LalaSkye/obligation-bound-policy-admission-lab/commit/0ac95d3439cf4ef79d2dc6873680c4be93cd0850) | `NOT_RUN` | `src/obpa_lab/` | `artifacts/release-manifest-v0.6.json` |
 
-_Generated 2026-08-30T05:42:48+00:00 from `surface.yaml`. Verification receipt: [receipts/verification-2026-08-30.json](receipts/verification-2026-08-30.json)._
+_Generated 2026-08-30T05:58:10+00:00 from `surface.yaml`. Verification receipt: [receipts/verification-2026-08-30.json](receipts/verification-2026-08-30.json)._
 <!-- INDEX:END -->
 
 The generated table is sourced from `surface.yaml`. Each row is a separate

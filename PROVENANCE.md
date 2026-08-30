@@ -25,7 +25,7 @@ artefact and the relevant earlier commit. This index supplies no such finding.
 
 ## Current objects
 
-- `start-here@6d2fed7724f546f4b7165ac38cca32f4e40b023e`
+- `start-here@ebe5cd58ca3c4f87b13b1803e6281aa03027b0c9`
 - `commit-gate-core@a473af4a1fe3af81fe3c6442bdd75331f6a8126b`
 - `obligation-bound-policy-admission-lab@0ac95d3439cf4ef79d2dc6873680c4be93cd0850`
 
