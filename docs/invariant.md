@@ -1,17 +1,9 @@
-# Invariant
+# Scope-Bound Invariant Note
 
-No valid decision record -> no state mutation.
+> No valid decision record -> no state mutation on the demonstrated path.
 
-## Definition
+This sentence belongs to the pinned `start-here` demo only. It is not the
+claim of `commit-gate-core`, which authorises but does not apply payloads, and
+it is not the claim of the obligation-bound policy admission lab.
 
-A mutation is any change to system state.
-
-A valid decision record must be:
-
-- present
-- unexpired
-- correctly scoped (action, object, environment match)
-- signature valid (HMAC-SHA256)
-- nonce unused
-
-If any condition fails, mutation does not occur.
+No wider system invariant is asserted by this index.

@@ -22,6 +22,21 @@ Format: Keep a Changelog. Versioning: SemVer.
 
 ---
 
+## [v0.3.0] - unreleased
+
+### Changed
+- reset the current index to three separate public inspection objects
+- made `start-here` the primary entry point and this repository secondary
+- replaced system-composition language with object-local claims and ceilings
+- refreshed pinned commits, path-resolution observations and the current receipt
+- retained wider maps and the earlier receipt only as superseded records
+
+### Claim limit
+The index records three bounded objects. It does not establish architecture,
+production enforcement, originality, category priority or copying.
+
+---
+
 ## [v0.2.0] - unreleased
 
 ### Added

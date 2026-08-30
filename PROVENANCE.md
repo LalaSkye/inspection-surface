@@ -1,45 +1,33 @@
-# Provenance & Independent Design Statement
+# Provenance Boundary
 
-**Author:** Ricky Dean Jones / AlvianTech  
-**Research Surface Map:** [lalaSkye.github.io/inspection-surface](https://lalaskye.github.io/inspection-surface/)
+**Repository owner:** LalaSkye
 
-## Statement
+**Named author:** Ricky Dean Jones / AlvianTech
 
-All repositories indexed here are original work developed independently using general software engineering principles:
+## What this record establishes
 
-- input validation
-- state transition control
-- cryptographic signing (HMAC)
-- replay protection (nonces)
-- expiry / freshness checks
-- deterministic evaluation pipelines
-- append-only audit logs
-- fail-closed gate design
+The pinned GitHub commits identify public repository states available at the
+recorded dates. Repository-level contribution statements identify the named
+engineering and review roles claimed inside each object.
 
-No external proprietary materials, codebases, or confidential specifications were used.
+## What it does not establish
 
-## Timeline
+Public timestamps and attributed possession do not by themselves establish:
 
-| Date (UTC) | Repository | What was built |
-|---|---|---|
-| 2026-02-16 | invariant-lock | Version-locked invariant enforcement |
-| 2026-02-16 | stop-machine | Deterministic three-state controller |
-| 2026-02-16 | deterministic-lexicon | Fixed-term vocabulary primitive |
-| 2026-02-16 | constraint-workshop | Deterministic control primitives |
-| 2026-02-17 | policy-lint | Governance statement linter |
-| 2026-02-18 | execution-boundary-lab | Gate interface + contamination cases |
-| 2026-02-20 | csgr-lab | LLM stability measurement |
-| 2026-03-13 | interpretation-boundary-lab | Pre-verdict admissibility |
-| 2026-03-13 | dual-boundary-admissibility-lab | Admissibility rotation corridor |
-| 2026-03-17 | admissible-transition-lab | Transition system enforcement |
-| 2026-03-23 | execution-gate-litmus | Governance existence test |
-| 2026-03-24 | trilogyos-surface | Public verification surface |
-| 2026-03-25 | start-here | Canonical governance demo |
-| 2026-03-28 | runtime-commit-gate-demo | Commit gate + 5-step proof |
-| 2026-05-18 | interrupt-ledger | Receipt schema, replay, stop evidence |
+- novelty or category priority;
+- independent validation;
+- that another person saw, used or copied the material;
+- ownership of shared engineering vocabulary;
+- that separate repositories compose into one deployed architecture.
 
-All dates are GitHub-recorded creation timestamps. Immutable. Independently verifiable.
+A copying or priority claim would require a dated side-by-side of the external
+artefact and the relevant earlier commit. This index supplies no such finding.
 
-## Attribution
+## Current objects
 
-If you use, adapt, or reference this work, please retain attribution to Ricky Dean Jones and link to the original repository or Research Surface Map.
+- `start-here@6d2fed7724f546f4b7165ac38cca32f4e40b023e`
+- `commit-gate-core@a473af4a1fe3af81fe3c6442bdd75331f6a8126b`
+- `obligation-bound-policy-admission-lab@0ac95d3439cf4ef79d2dc6873680c4be93cd0850`
+
+Read each object's own authorship, review and claim-boundary files. No
+attribution or proof transfers by proximity.
