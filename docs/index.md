@@ -22,6 +22,9 @@ The three rows are separate evidence objects. No proof, authority or capability
 inherits between them. They do not establish production readiness,
 path-universal enforcement, originality, category priority or copying.
 
+Other public repositories may appear on the GitHub account. They are not these
+three objects. A public name is not an inspection-object admission.
+
 For commands and receipt state, inspect the repository
 [`README.md`](https://github.com/LalaSkye/inspection-surface) and
 [`index.json`](https://github.com/LalaSkye/inspection-surface/blob/main/index.json).
