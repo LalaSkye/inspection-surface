@@ -1,5 +1,11 @@
 # Secondary Public Inspection Index
 
+## Public class
+
+This repository is the routing index for the three inspection objects.
+It is not a fourth inspection object.
+Proofs do not inherit across the rows it lists.
+
 **Primary entry point:** [start-here](https://github.com/LalaSkye/start-here)
 
 This repository is a secondary, commit-pinned index of three current public
@@ -49,6 +55,9 @@ copying.
 
 Older maps and wider repository lists are retained only as superseded records.
 They are not current routing or architecture claims.
+
+Other public repositories on the account are not these three objects. A public
+name is not an inspection-object admission.
 
 ## Claim ceiling
 
