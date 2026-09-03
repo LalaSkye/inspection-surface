@@ -33,7 +33,7 @@ index does not claim a fresh replay result.
 | [commit-gate-core](https://github.com/LalaSkye/commit-gate-core) | `PATHS_RESOLVE` | `UNRELEASED` | `—` | [`a473af4`](https://github.com/LalaSkye/commit-gate-core/commit/a473af4a1fe3af81fe3c6442bdd75331f6a8126b) | `NOT_RUN` | `src/commit_gate_core/authorize.py` | `RECEIPT.md` |
 | [obligation-bound-policy-admission-lab](https://github.com/LalaSkye/obligation-bound-policy-admission-lab) | `PATHS_RESOLVE` | `UNRELEASED` | `—` | [`0ac95d3`](https://github.com/LalaSkye/obligation-bound-policy-admission-lab/commit/0ac95d3439cf4ef79d2dc6873680c4be93cd0850) | `NOT_RUN` | `src/obpa_lab/` | `artifacts/release-manifest-v0.6.json` |
 
-_Generated 2026-08-30T05:58:10+00:00 from `surface.yaml`. Verification receipt: [receipts/verification-2026-08-30.json](receipts/verification-2026-08-30.json)._
+_Generated 2026-09-03T05:28:36+00:00 from `surface.yaml`. Verification receipt: [receipts/verification-2026-09-03.json](receipts/verification-2026-09-03.json)._
 <!-- INDEX:END -->
 
 The generated table is sourced from `surface.yaml`. Each row is a separate

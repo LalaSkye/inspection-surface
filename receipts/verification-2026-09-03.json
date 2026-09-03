@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "verified_at_utc": "2026-08-30T05:58:10+00:00",
+  "verified_at_utc": "2026-09-03T05:28:36+00:00",
   "surface_version": 2,
-  "surface_sha256": "50c9a6a30a9e06880b1b85c39b6c91f1001638561b95aab80ed91e4261977a85",
+  "surface_sha256": "d3b9391ebc474eee09aa958634049dd1f603c3802820778bdb20b4c5c7aab198",
   "entries": [
     {
       "repository": "start-here",
@@ -32,6 +32,6 @@
       "replay_status": "NOT_RUN"
     }
   ],
-  "claim_limit": "This receipt records repository, commit, proof-path and receipt-path resolution only. It does not prove downstream behaviour or replay success.",
-  "receipt_hash": "8eea32fd4c05ffaf5cc748fb9616e909f674fa4303d3c9b16b34107ba2cee1af"
+  "claim_limit": "This receipt records read-only resolution, at the stated time, of the named repositories, pinned commits, declared proof paths and declared receipt paths. Each pin is a historical evidence identity, not a claim about current main or the GitHub Latest release. It does not prove replay, downstream behaviour, release state or any evidence for stop-machine. Evidence does not transfer between objects.",
+  "receipt_hash": "6770c915a7a15e38bba2de1ab1133a19a65b8cee6a3928e9c6d0ac2a0cbf6e8e"
 }
