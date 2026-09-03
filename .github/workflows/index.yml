@@ -40,7 +40,9 @@ jobs:
         run: python -m unittest discover -s tests -v
 
       - name: Verify evidence receipt
-        run: python tools/verify_evidence_receipt.py receipts/verification-2026-08-30.json
+        run: |
+          receipt_path="$(python -c 'import yaml; print(yaml.safe_load(open("surface.yaml", encoding="utf-8"))["verification_receipt"])')"
+          python tools/verify_evidence_receipt.py "$receipt_path"
 
       - name: Regenerate index
         run: python tools/build_index.py

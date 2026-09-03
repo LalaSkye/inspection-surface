@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-30T05:58:10+00:00",
-  "verification_receipt": "receipts/verification-2026-08-30.json",
+  "generated_at": "2026-09-03T05:28:36+00:00",
+  "verification_receipt": "receipts/verification-2026-09-03.json",
   "owner": "LalaSkye",
   "rows": [
     {
@@ -12,7 +12,7 @@
       "evidence_status": "PATHS_RESOLVE",
       "release_ref": null,
       "commit_sha": "ebe5cd58ca3c4f87b13b1803e6281aa03027b0c9",
-      "verified_at_utc": "2026-08-30T05:58:10+00:00",
+      "verified_at_utc": "2026-09-03T05:28:36+00:00",
       "replay_status": "NOT_RUN",
       "proof_path": "run_demo.py",
       "test_command": "python run_demo.py",
@@ -26,7 +26,7 @@
       "evidence_status": "PATHS_RESOLVE",
       "release_ref": null,
       "commit_sha": "a473af4a1fe3af81fe3c6442bdd75331f6a8126b",
-      "verified_at_utc": "2026-08-30T05:42:48+00:00",
+      "verified_at_utc": "2026-09-03T05:28:36+00:00",
       "replay_status": "NOT_RUN",
       "proof_path": "src/commit_gate_core/authorize.py",
       "test_command": "PYTHONPATH=src python -m pytest tests/test_authorize.py tests/test_beau_failure_classes.py -q",
@@ -40,7 +40,7 @@
       "evidence_status": "PATHS_RESOLVE",
       "release_ref": null,
       "commit_sha": "0ac95d3439cf4ef79d2dc6873680c4be93cd0850",
-      "verified_at_utc": "2026-08-30T05:42:48+00:00",
+      "verified_at_utc": "2026-09-03T05:28:36+00:00",
       "replay_status": "NOT_RUN",
       "proof_path": "src/obpa_lab/",
       "test_command": "PYTHONPATH=src python -m unittest discover -s tests -v",

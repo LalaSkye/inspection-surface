@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-09-03T05:28:36+00:00",
+  "surface_version": 2,
+  "surface_sha256": "d3b9391ebc474eee09aa958634049dd1f603c3802820778bdb20b4c5c7aab198",
+  "entries": [
+    {
+      "repository": "start-here",
+      "commit_sha": "ebe5cd58ca3c4f87b13b1803e6281aa03027b0c9",
+      "release_ref": null,
+      "repository_resolves": true,
+      "proof_path_resolves": true,
+      "receipt_path_resolves": true,
+      "replay_status": "NOT_RUN"
+    },
+    {
+      "repository": "commit-gate-core",
+      "commit_sha": "a473af4a1fe3af81fe3c6442bdd75331f6a8126b",
+      "release_ref": null,
+      "repository_resolves": true,
+      "proof_path_resolves": true,
+      "receipt_path_resolves": true,
+      "replay_status": "NOT_RUN"
+    },
+    {
+      "repository": "obligation-bound-policy-admission-lab",
+      "commit_sha": "0ac95d3439cf4ef79d2dc6873680c4be93cd0850",
+      "release_ref": null,
+      "repository_resolves": true,
+      "proof_path_resolves": true,
+      "receipt_path_resolves": true,
+      "replay_status": "NOT_RUN"
+    }
+  ],
+  "claim_limit": "This receipt records read-only resolution, at the stated time, of the named repositories, pinned commits, declared proof paths and declared receipt paths. Each pin is a historical evidence identity, not a claim about current main or the GitHub Latest release. It does not prove replay, downstream behaviour, release state or any evidence for stop-machine. Evidence does not transfer between objects.",
+  "receipt_hash": "6770c915a7a15e38bba2de1ab1133a19a65b8cee6a3928e9c6d0ac2a0cbf6e8e"
+}
