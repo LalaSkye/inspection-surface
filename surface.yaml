@@ -1,8 +1,10 @@
-# Source of truth for the secondary public inspection index.
+# Source of truth for the secondary public inspection index and its routing note.
 # Editing this file regenerates index.json and the README index table.
 #
 # Rules:
-#   - Only the three current public inspection objects belong here.
+#   - Only the three retained inspection artefacts on this surface belong here.
+#   - `stop-machine` is the canonical public entry route; `start-here` remains
+#     a superseded historical artefact and not the current entry point.
 #   - Each bounded_claim is one scope-qualified sentence.
 #   - A pinned commit is evidence identity, not a claim that main cannot move.
 #   - PATHS_RESOLVE does not mean the replay command was run.
@@ -11,6 +13,8 @@ version: 2
 generated_at: "2026-08-30T05:58:10+00:00"
 verification_receipt: receipts/verification-2026-08-30.json
 repos:
+  # Retained historical inspection artefact only. Evidence for this pinned row
+  # does not transfer to `stop-machine`.
   - name: start-here
     lifecycle_status: UNRELEASED
     evidence_status: PATHS_RESOLVE

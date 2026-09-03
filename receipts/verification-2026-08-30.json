@@ -2,7 +2,7 @@
   "schema_version": 1,
   "verified_at_utc": "2026-08-30T05:58:10+00:00",
   "surface_version": 2,
-  "surface_sha256": "50c9a6a30a9e06880b1b85c39b6c91f1001638561b95aab80ed91e4261977a85",
+  "surface_sha256": "0fb3ceb5e53874d29197dc595bd448fbcbbe67e6528f1b42768a0217ebf5dc41",
   "entries": [
     {
       "repository": "start-here",
@@ -33,5 +33,5 @@
     }
   ],
   "claim_limit": "This receipt records repository, commit, proof-path and receipt-path resolution only. It does not prove downstream behaviour or replay success.",
-  "receipt_hash": "8eea32fd4c05ffaf5cc748fb9616e909f674fa4303d3c9b16b34107ba2cee1af"
+  "receipt_hash": "61977c0870f98e239fb7782b1b0f64fcfa648b2c07e0cee1e6d694c2e1db846e"
 }

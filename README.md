@@ -6,11 +6,16 @@ This repository is the routing index for the three inspection objects.
 It is not a fourth inspection object.
 Proofs do not inherit across the rows it lists.
 
-**Primary entry point:** [start-here](https://github.com/LalaSkye/start-here)
+**Primary entry point:** [stop-machine](https://github.com/LalaSkye/stop-machine)
 
-This repository is a secondary, commit-pinned index of three current public
-inspection objects. It is not the first URL, a product page, a system map or a
-claim that the three objects compose into one architecture.
+`start-here` remains listed below only as a retained historical inspection
+artefact, superseded by `stop-machine` and not the current entry point. Its
+pinned evidence stays scoped to that historical object and does not transfer to
+`stop-machine`.
+
+This repository is a secondary, commit-pinned index of three bounded public
+inspection artefacts. It is not the first URL, a product page, a system map or
+a claim that the three objects compose into one architecture.
 
 ## Evidence boundary
 
@@ -19,7 +24,7 @@ identifies the inspected version. `PATHS_RESOLVE` means the named repository,
 proof path and receipt path were observed at that commit. `NOT_RUN` means this
 index does not claim a fresh replay result.
 
-## Current index
+## Retained inspection objects
 
 <!-- INDEX:START -->
 | Repo | Evidence | Lifecycle | Ref | Commit | Replay | Proof | Receipt |
@@ -32,12 +37,15 @@ _Generated 2026-08-30T05:58:10+00:00 from `surface.yaml`. Verification receipt: 
 <!-- INDEX:END -->
 
 The generated table is sourced from `surface.yaml`. Each row is a separate
-object; evidence does not inherit across rows.
+object; evidence does not inherit across rows. The `start-here` row remains a
+historical evidence object only.
 
 ## One sentence per object
 
-1. **start-here** — run `python run_demo.py`; on that demonstrated path,
-   mutation does not occur without a valid decision record.
+1. **start-here** — retained historical artefact, superseded by
+   `stop-machine` and not the current entry point; run `python run_demo.py`;
+   on that demonstrated path, mutation does not occur without a valid decision
+   record.
 2. **commit-gate-core** — the unreleased authorize-only kernel binds exact
    payload bytes and returns a verdict; it never applies them.
 3. **obligation-bound-policy-admission-lab** — historical admission, current
