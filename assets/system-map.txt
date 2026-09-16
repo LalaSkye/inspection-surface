@@ -1,6 +1,7 @@
 SUPERSEDED SYSTEM MAP
 
 No current system topology is asserted by this file.
-The active public route is three separate inspection objects:
+The indexed evidence class contains three separate inspection objects:
 start-here; commit-gate-core; obligation-bound-policy-admission-lab.
 Evidence does not inherit between them.
+Public routing is under revalidation; this list does not designate a starting point.

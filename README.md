@@ -6,7 +6,7 @@ This repository is the routing index for the three inspection objects.
 It is not a fourth inspection object.
 Proofs do not inherit across the rows it lists.
 
-**Current public starting point (outside this three-object index):** [stop-machine](https://github.com/LalaSkye/stop-machine)
+**Public routing status:** Under revalidation. No repository is currently designated as the public starting point.
 
 This repository is a secondary, commit-pinned index of three current public
 inspection objects. It is not the first URL, a product page, a system map or a

@@ -6,7 +6,7 @@ description: Three bounded public objects, each pinned to an inspectable commit 
 
 # Secondary Public Inspection Index
 
-**Begin here:** [LalaSkye/start-here](https://github.com/LalaSkye/start-here)
+**Public routing status:** Under revalidation. No repository is currently designated as the public starting point.
 
 This page is a routing surface, not a product, system map or production claim.
 
